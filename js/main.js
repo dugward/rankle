@@ -11,7 +11,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 var db = firebase.firestore();
-var files = db.collection("users");
 var userDoc = db.collection("users").doc(userID);
 var provider = new firebase.auth.GoogleAuthProvider();
 
@@ -41,47 +40,56 @@ firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     userInfo = firebase.auth().currentUser;
     userID = userInfo.uid;
+    console.log(userID);
     userName = userInfo.displayName;
 
     console.log(`${userName} signed in`);
 
     //check if user doc exists
 
-    userDoc.get().then(function (doc) {
-      if (doc.exists) {
-        userMarvel = doc.data().marvel;
-        userStarWars = doc.data().starWars;
-      } else {
-        //create user doc if not there
-        files.doc(userID).set({
-          starWars: starWarsMovies,
-          marvel: marvelMovies,
-          name: userName,
-        });
-        userMarvel = marvelMovies;
-        userStarWars = starWarsMovies;
-      }
-      marvelUp(userMarvel, "yours");
-      starWarsUp(userStarWars, "yours");
-      document
-        .querySelectorAll(".users")[0]
-        .insertAdjacentHTML(
-          "afterbegin",
-          `<option value="${userName}">${userName}</option>`
-        );
-      files.get().then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          if (doc.data().name != userName) {
-            document
-              .querySelectorAll(".users")[0]
-              .insertAdjacentHTML(
-                "beforeend",
-                `<option value="${doc.data().name}">${doc.data().name}</option>`
-              );
-          }
-        });
+    db.collection("users")
+      .doc(userID)
+      .get()
+      .then(function (doc) {
+        if (doc.exists) {
+          userMarvel = doc.data().marvel;
+          userStarWars = doc.data().starWars;
+          console.log("exists");
+        } else {
+          //create user doc if not there
+          db.collection("users").doc(userID).set({
+            starWars: starWarsMovies,
+            marvel: marvelMovies,
+            name: userName,
+          });
+          userMarvel = marvelMovies;
+          userStarWars = starWarsMovies;
+        }
+        marvelUp(userMarvel, "yours");
+        starWarsUp(userStarWars, "yours");
+        document
+          .querySelectorAll(".users")[0]
+          .insertAdjacentHTML(
+            "afterbegin",
+            `<option value="${userName}">${userName}</option>`
+          );
+        db.collection("users")
+          .get()
+          .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+              if (doc.data().name != userName) {
+                document
+                  .querySelectorAll(".users")[0]
+                  .insertAdjacentHTML(
+                    "beforeend",
+                    `<option value="${doc.data().name}">${
+                      doc.data().name
+                    }</option>`
+                  );
+              }
+            });
+          });
       });
-    });
     //ui changes if logged off
   } else {
     console.log("Signed out");
@@ -95,16 +103,18 @@ firebase.auth().onAuthStateChanged(function (user) {
     document
       .querySelectorAll(".users")[0]
       .insertAdjacentHTML("afterbegin", `<option value="you">You?</option>`);
-    files.get().then(function (querySnapshot) {
-      querySnapshot.forEach(function (doc) {
-        document
-          .querySelectorAll(".users")[0]
-          .insertAdjacentHTML(
-            "beforeend",
-            `<option value="${doc.data().name}">${doc.data().name}</option>`
-          );
+    db.collection("users")
+      .get()
+      .then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          document
+            .querySelectorAll(".users")[0]
+            .insertAdjacentHTML(
+              "beforeend",
+              `<option value="${doc.data().name}">${doc.data().name}</option>`
+            );
+        });
       });
-    });
     loginButton.style.display = "block";
   }
 });
@@ -125,7 +135,7 @@ document.querySelectorAll(".users")[0].onchange = () => {
     loginButton.style.display = "none";
     document.querySelectorAll(".otheruser")[0].style.display = "block";
     //put up the lists for the selected user
-    files
+    db.collection("users")
       .where("name", "==", val)
       .get()
       .then((querySnapshot) => {
