@@ -153,79 +153,79 @@ li {
 
 /* Larger than tablet */
 @media (min-width: 600px) {
+  .sitetitle {
+    font-size: 5.5vw;
+    margin-bottom: 1%;
+  }
+
+  .listSelect {
+    margin-bottom: 3%;
+  }
+
+  .listItem {
+    font-size: 3vw;
+  }
   .listItem .material-icons {
     font-size: 2vw;
   }
   .users {
-    font-size: 2.5vw;
-    height: 6vw;
+    font-size: 2vw;
+    height: 4.55vw;
+    width: 40%;
+  }
+
+  .login {
+    width: 40%;
+    margin: auto;
+    background-color: rgb(236, 220, 212);
   }
 
   .logoutIcon {
-    font-size: 6vw;
+    font-size: 4vw;
   }
 
   ul {
-    font-size: 2.75vw;
+    font-size: 2.25vw;
+    width: 70%;
   }
 }
 
 /* Larger than desktop */
 @media (min-width: 900px) {
   .sitetitle {
-    font-size: 6vw;
-  }
-
-  .listItem {
-    font-size: 2.75vw;
-  }
-
-  .listItem .material-icons {
-    font-size: 2vw;
-  }
-  .users {
-    font-size: 2vw;
-    height: 4.5vw;
-  }
-
-  .logoutIcon {
-    font-size: 4.25vw;
-  }
-
-  ul {
-    font-size: 2.2vw;
-  }
-}
-
-/* Larger than desktop */
-@media (min-width: 1150px) {
-  .sitetitle {
-    font-size: 400%;
-    margin-bottom: 2%;
+    font-size: 3.5vw;
+    margin-bottom: 1%;
   }
 
   .listSelect {
-    margin-bottom: 4%;
+    margin-bottom: 3%;
   }
 
   .listItem {
-    font-size: 150%;
+    font-size: 2vw;
   }
-
   .listItem .material-icons {
-    font-size: 100%;
+    font-size: 2vw;
   }
   .users {
-    font-size: 110%;
-    height: 150%;
-    margin-bottom: 7%;
+    font-size: 1.5vw;
+    height: 3.25vw;
+    width: 40%;
+    margin-bottom: 5%;
+  }
+
+  .login {
+    width: 40%;
+    margin: auto;
+    background-color: rgb(236, 220, 212);
   }
 
   .logoutIcon {
-    font-size: 250%;
+    font-size: 3vw;
   }
 
   ul {
-    font-size: 130%;
+    font-size: 1.5vw;
+    width: 60%;
   }
 }
