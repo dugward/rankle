@@ -251,6 +251,9 @@ const starWarssortable = new Draggable.Sortable(
   document.getElementById("starwars"),
   {
     draggable: "li",
+    mirror: {
+      constrainDimensions: true,
+    },
   }
 );
 
