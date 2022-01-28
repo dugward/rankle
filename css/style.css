@@ -41,6 +41,9 @@ body {
   vertical-align: middle;
 }
 
+.listItem .material-icons {
+}
+
 .checked {
   display: none;
 }
@@ -106,9 +109,8 @@ li {
   font-weight: 300;
   touch-action: none;
   list-style-type: none;
-  border: 1px solid #595959;
+  border: 1px solid rgb(248, 129, 108);
   padding-left: 2vw;
-  border-radius: 1vw;
   background-color: rgb(236, 235, 235);
   color: rgb(65, 64, 64);
 }
