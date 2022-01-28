@@ -1,11 +1,11 @@
 # Rankle
 
-A simple little ranking app to share nerdy lists with friends.
+A simple little ranking app to compare lists with friends.
 
 ## To Use
 
-Rankle your list
+Rankle your lists!
 
-<!-- ## Images
+## Images
 
-![Example image 1](thumb.png) -->
+![Example image 1](thumb.png)
