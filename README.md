@@ -1,11 +1,11 @@
-# Cultural Veg
+# Rankle
 
-desc
+A simple little ranking app to share nerdy lists with friends.
 
 ## To Use
 
-inst
+Rankle your list
 
-## Images
+<!-- ## Images
 
-![Example image 1](thumb.png)
+![Example image 1](thumb.png) -->
