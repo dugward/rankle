@@ -12,12 +12,12 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 var db = firebase.firestore();
 var files = db.collection("users");
-userDoc = db.collection("users").doc(userID);
+var userDoc = db.collection("users").doc(userID);
 var provider = new firebase.auth.GoogleAuthProvider();
 
 //buckets
 
-var userInfo, userID, userName, userDoc, userMarvel, userStarWars;
+var userInfo, userID, userName, userMarvel, userStarWars;
 
 //The login button
 const loginButton = document.getElementById("loginButton");
