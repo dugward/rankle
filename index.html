@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,user-scalable=no"
+    />
+    <!-- Metastuff
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="description" content="desc" />
+    <meta property="og:description" content="rank movie lists" />
+    <meta property="og:image" content="../thumb.png" />
+    <meta name="robots" content="noindex" />
+    <title>rankle</title>
+
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="https://use.typekit.net/gyx0auv.css" />
+    <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/skeleton.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="../favicon.png" />
+    <!-- the page
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  </head>
+  <body class="site">
+    <div class="container">
+      <div class="sitetitle">rankle</div>
+
+      <div class="listSelect">
+        <div class="marvel listItem clicked">
+          <span class="material-icons unchecked">
+            check_box_outline_blank
+          </span>
+
+          <span class="material-icons checked"> check_box </span>
+          Marvel
+        </div>
+        <div class="starwars listItem">
+          <span class="material-icons unchecked">
+            check_box_outline_blank
+          </span>
+          <span class="material-icons checked"> check_box </span>
+          Star Wars
+        </div>
+      </div>
+      <select class="users"></select>
+      <div id="logout" class="noselect">
+        <span class="material-icons logoutIcon noselect"> exit_to_app </span>
+      </div>
+      <div id="login">
+        <div class="button login noselect" id="loginButton">Login</div>
+      </div>
+      <div class="yours">
+        <ul id="marvel" class="list"></ul>
+        <ul id="starwars" class="list"></ul>
+      </div>
+      <div class="otheruser">
+        <ul id="marvel" class="list"></ul>
+        <ul id="starwars" class="list"></ul>
+      </div>
+    </div>
+    <!-- scripties
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.11/lib/draggable.bundle.js"></script>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
